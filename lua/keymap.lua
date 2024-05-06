@@ -28,12 +28,15 @@ keymap.set('n', 'gn', '<cmd>bnext<cr>')
 keymap.set('x', '<leader>y', '"+y')
 keymap.set('n', '<leader>y', '"+y')
 
-vim.keymap.set('n', '<leader>CH', function()
+local run_project = require('../../run')
+keymap.set('n', '<leader>R', run_project)
+
+keymap.set('n', '<leader>CH', function()
     vim.api.nvim_set_hl(0, 'NoCursor', { blend = 100, ctermfg = 0 })
     vim.cmd('set guicursor+=a:NoCursor/lCursor')
 end)
 
-vim.keymap.set('n', '<leader>CR', function()
+keymap.set('n', '<leader>CR', function()
     vim.api.nvim_set_hl(0, 'NoCursor', { blend = 100, ctermfg = 0 })
     vim.cmd('set guicursor-=a:NoCursor/lCursor')
 end)
