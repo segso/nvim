@@ -47,6 +47,17 @@ return {
 
             opts.desc = "Show documentation for what is under cursor"
             keymap.set("n", "K", vim.lsp.buf.hover, opts)
+
+            opts.desc = "Quickfix"
+            keymap.set("n", "<leader>qf", function()
+                vim.diagnostic.goto_next()
+                vim.lsp.buf.code_action({
+                    context = {
+                        only = { "quickfix" },
+                    },
+                    apply = true,
+                })
+            end, opts)
         end
 
         local capabilities = cmp_nvim_lsp.default_capabilities()
