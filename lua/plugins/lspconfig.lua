@@ -31,7 +31,7 @@ return {
             keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
 
             opts.desc = "Go to declaration"
-            keymap.set("n", "gd", vim.lsp.buf.declaration, opts)
+            keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 
             opts.desc = "Show buffer diagnostics"
             keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
