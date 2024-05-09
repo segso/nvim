@@ -14,7 +14,14 @@ return {
 
         require("luasnip.loaders.from_vscode").lazy_load()
 
-        vim.keymap.set({ "i", "s" }, "<TAB>", function() luasnip.jump(1) end, { silent = true })
+        vim.keymap.set({ "i", "s" }, "<TAB>", function()
+            if luasnip.jumpable(1) then
+                luasnip.jump(1)
+            else
+                vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
+            end
+        end, { silent = true })
+
         vim.keymap.set({ "i", "s" }, "<S-TAB>", function() luasnip.jump(-1) end, { silent = true })
 
         cmp.setup({
