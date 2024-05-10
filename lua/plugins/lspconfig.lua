@@ -4,6 +4,7 @@ return {
     dependencies = {
         "hrsh7th/cmp-nvim-lsp",
         { "antosha417/nvim-lsp-file-operations", config = true },
+        "williamboman/mason.nvim",
     },
     config = function()
         local lspconfig = require("lspconfig")
@@ -68,6 +69,15 @@ return {
             vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
         end
 
+        require('mason-lspconfig').setup_handlers({
+            function(server)
+                lspconfig[server].setup({
+                    capabilities = capabilities,
+                    on_attach = on_attach,
+                })
+            end,
+        })
+
         lspconfig["lua_ls"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
@@ -84,16 +94,6 @@ return {
                     },
                 },
             },
-        })
-
-        lspconfig["rust_analyzer"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-        })
-
-        lspconfig["dartls"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
         })
     end,
 }
