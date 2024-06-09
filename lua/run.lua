@@ -29,6 +29,7 @@ local function run_project()
         if ok then
             found = true
             vim.cmd(prefix_command .. type.cmd)
+            vim.api.nvim_feedkeys("i", "n", true)
             break
         end
     end

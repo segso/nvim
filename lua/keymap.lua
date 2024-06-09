@@ -19,8 +19,8 @@ keymap.set("v", "K", ":m '<-2<cr>gv=gv")
 
 keymap.set('x', '<leader>p', '"_dP')
 
-keymap.set('n', '<leader>rh', '<cmd>botright new | :terminal<cr>')
-keymap.set('n', '<leader>rs', '<cmd>botright vnew | :terminal<cr>')
+keymap.set('n', '<leader>rh', '<cmd>botright new | :terminal<cr>i')
+keymap.set('n', '<leader>rs', '<cmd>botright vnew | :terminal<cr>i')
 keymap.set('t', '<esc>', '<c-\\><c-n>')
 
 keymap.set('n', 'gn', '<cmd>bnext<cr>')
