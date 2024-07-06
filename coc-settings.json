@@ -1,0 +1,13 @@
+{
+  "sumneko-lua.enableNvimLuaDev": true,
+  "coc.preferences.extensionUpdateCheck": "never",
+  "diagnostic.warningSign": "",
+  "diagnostic.errorSign": "",
+  "diagnostic.infoSign": "",
+  "diagnostic.hintSign": "󰌵",
+  "Lua.hint.enable": false,
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextCurrentLineOnly": false,
+  "diagnostic.virtualTextPrefix": "<- ",
+  "inlayHint.display": false
+}
